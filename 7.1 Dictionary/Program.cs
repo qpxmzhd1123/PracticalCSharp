@@ -50,8 +50,13 @@ namespace _7._1_Dictionary
             Console.WriteLine(average);
             int total = flowerDict.Sum(x => x.Value);
             Console.WriteLine(  total);
-            var items = flowerDict.Where(x => x.Key.Length <= 5).ToList();
+            var items = flowerDict.Where(x => x.Key.Length <= 5).ToDictionary(x => x.Key, x => x.Value).ToList();
             items.ForEach(x => Console.WriteLine($"키는{x.Key} 값은{x.Value}"));
+
+            foreach (var key in flowerDict.Values)
+            {
+                Console.WriteLine(key);
+            }
 
         }
     }
