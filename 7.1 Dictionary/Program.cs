@@ -10,16 +10,13 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var flowerDict = new Dictionary<string, int>
-            {
-                {"sumflower", 400 },
-                {"pansy", 300 },
-                {"tulip", 350 },
-                {"rose", 500 },
-                {"daglia", 450 },
-            };
+            var flowerDict = new Dictionary<string, int>();
 
-            Console.WriteLine(flowerDict["sumflower"]);
+            // 딕셔너리 키 추가
+            flowerDict["violet"] = 600;
+
+            // 딕셔너리 값 출력
+            Console.WriteLine(flowerDict["violet"]);
 
         }
     }
