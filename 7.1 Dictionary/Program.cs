@@ -10,7 +10,17 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test");
+            var flowerDict = new Dictionary<string, int>
+            {
+                {"sumflower", 400 },
+                {"pansy", 300 },
+                {"tulip", 350 },
+                {"rose", 500 },
+                {"daglia", 450 },
+            };
+
+            Console.WriteLine(flowerDict["sumflower"]);
+
         }
     }
 }
