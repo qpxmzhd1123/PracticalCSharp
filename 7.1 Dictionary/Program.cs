@@ -10,8 +10,7 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            //헬로
-            Console.WriteLine("Hello!!");
+            Console.WriteLine("Test");
         }
     }
 }
