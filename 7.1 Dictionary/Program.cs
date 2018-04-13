@@ -38,11 +38,10 @@ namespace _7._1_Dictionary
                 [125] = new Employee(125, "성춘향"),
 
             };
-            
-            
+            var result = flowerDict.Remove("pansy2");
 
-            // 딕셔너리 값 출력
-            Console.WriteLine(flowerDict["violet"]);
+            Console.WriteLine(result);
+            
 
         }
     }
