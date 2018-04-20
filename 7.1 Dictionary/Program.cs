@@ -24,7 +24,6 @@ namespace _7._1_Dictionary
             Console.WriteLine("Aa");
             var flowerDict = new Dictionary<string, int>
             {
-
                 // 딕셔너리 키 추가
                 ["sumflower"] = 400,
                 ["pansy"] = 300,
