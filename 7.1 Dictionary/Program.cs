@@ -14,6 +14,7 @@ namespace _7._1_Dictionary
         public Employee(int code, string name)
         {
             this.Code = code;
+
             this.Name = name;
         }
     }
