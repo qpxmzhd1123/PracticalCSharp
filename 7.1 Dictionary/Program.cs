@@ -21,6 +21,7 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
+
             var flowerDict = new Dictionary<string, int>
             {
 
