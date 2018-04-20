@@ -16,6 +16,7 @@ namespace _7._1_Dictionary
             this.Code = code;
 
 
+
             this.Name = name;
         }
     }
