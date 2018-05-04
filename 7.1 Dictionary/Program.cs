@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _7._1_Dictionary
 {
-   class Acount
+    class Acount
     {
         public string Id { get; set; }
         public string Pw { get; set; }
