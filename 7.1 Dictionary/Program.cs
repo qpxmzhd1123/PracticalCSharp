@@ -26,7 +26,7 @@ namespace _7._1_Dictionary
 
             };
 
-            Dictionary<string, Acount> compareDict = userDict.Where(p => DateTime.Compare(p.Value.JoinDate, new DateTime(2018, 1, 1)) == -1)
+            Dictionary<string, Acount> compareDict = userDict.Where(p => DateTime.Compare(p.Value.JoinDate, new DateTime(2017, 1, 1)) == 1 && DateTime.Compare(p.Value.JoinDate, new DateTime(2018, 1, 1)) == -1)
                 .ToDictionary(p => p.Key, p => p.Value);
             foreach (var item in compareDict)
             {
