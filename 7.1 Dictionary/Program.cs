@@ -6,34 +6,46 @@ using System.Threading.Tasks;
 
 namespace _7._1_Dictionary
 {
-    class Acount
+    class MonthDay
     {
-        public string Id { get; set; }
-        public string Pw { get; set; }
-        public DateTime JoinDate { get; set; }
+        public int Day { get; private set; }
+        public int Month { get; private set; }
+        public MonthDay(int month, int day)
+        {
+            this.Month = month;
+            this.Day = day;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var day = obj as MonthDay;
+            return day != null &&
+                   Day == day.Day &&
+                   Month == day.Month;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 93243338;
+            hashCode = hashCode * -1521134295 + Day.GetHashCode();
+            hashCode = hashCode * -1521134295 + Month.GetHashCode();
+            return hashCode;
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Dictionary<string, Acount> userDict = new Dictionary<string, Acount>()
+            Dictionary<MonthDay, string> dict = new Dictionary<MonthDay, string>
             {
-                ["abcd"] = new Acount() { Id = "abcd", Pw = "abcd", JoinDate = new DateTime(2018, 12, 30) },
-                ["efgh"] = new Acount() { Id = "efgh", Pw = "efgh", JoinDate = new DateTime(2018, 11, 23) },
-                ["ijklm"] = new Acount() { Id = "ijklm", Pw = "ijklm", JoinDate = new DateTime(2017, 11, 13) },
-                ["nopq"] = new Acount() { Id = "nopq", Pw = "nopq", JoinDate = new DateTime(2018, 1, 20) },
-                ["rstu"] = new Acount() { Id = "rstu", Pw = "retu", JoinDate = new DateTime(2008, 5, 15) },
+                [new MonthDay(6, 6)] = "현충일",
+                [new MonthDay(8, 15)] = "광복절",
+                [new MonthDay(10, 3)] = "개천절",
 
             };
-
-            Dictionary<string, Acount> compareDict = userDict.Where(p => p.Value.JoinDate.Year == 2017)
-                .ToDictionary(p => p.Key, p => p.Value);
-            foreach (var item in compareDict)
-            {
-                Console.WriteLine(item.Value.JoinDate);
-            }
-
-
+            var md = new MonthDay(8, 15);
+            var s = dict[md];
+            Console.WriteLine(s);
         }
     }
 }
