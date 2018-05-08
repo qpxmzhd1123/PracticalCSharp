@@ -12,15 +12,10 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var filePath = @"C:\Example\고향의봄.txt";
-            using (var writer = new StreamWriter(filePath, append: true))
-            {
-                writer.WriteLine("나의 살던 고향은");
-                writer.WriteLine("꽃피는 산골");
-                writer.WriteLine("복숭아꽃 살구꽃");
-                writer.WriteLine("아기 진달래");
-            }
-                            
+            var lines = new[] { "Seoul", "New Delhi", "Bangkok", "London", "Paris", };
+            var filePath = @"C:\Example\Cities.txt";
+            File.WriteAllLines(filePath, lines);
+            
                 
             
         }
