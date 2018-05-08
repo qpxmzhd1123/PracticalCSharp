@@ -14,13 +14,13 @@ namespace _7._1_Dictionary
         {
             var filePath = @"C:\Example\Greeting.txt";
             var lines = File.ReadLines(filePath, Encoding.Default)
-                .Count(s => s.Contains("안녕"));
-            Console.WriteLine(lines);
-                           
-
-            
-            
-
+                            .Where(s => !string.IsNullOrWhiteSpace(s))
+                            .ToArray();
+            foreach (var item in lines)
+            {
+                Console.WriteLine(item);
+            }
+                
             
         }
 
