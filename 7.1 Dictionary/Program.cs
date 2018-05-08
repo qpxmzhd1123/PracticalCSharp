@@ -14,9 +14,14 @@ namespace _7._1_Dictionary
         {
             var filePath = @"C:\Example\Greeting.txt";
             var lines = File.ReadLines(filePath, Encoding.Default)
-                            .Where(s => !string.IsNullOrWhiteSpace(s))
-                            .All(s => s.All(c => char.IsDigit(c)));
-            Console.WriteLine(lines);
+                            .Distinct()
+                            .OrderBy(s => s.Length)
+                            .ToArray();
+            foreach (var item in lines)
+            {
+                Console.WriteLine(item);
+            }
+                            
                 
             
         }
