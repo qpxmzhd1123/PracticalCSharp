@@ -15,11 +15,8 @@ namespace _7._1_Dictionary
             var filePath = @"C:\Example\Greeting.txt";
             var lines = File.ReadLines(filePath, Encoding.Default)
                             .Where(s => !string.IsNullOrWhiteSpace(s))
-                            .ToArray();
-            foreach (var item in lines)
-            {
-                Console.WriteLine(item);
-            }
+                            .All(s => s.All(c => char.IsDigit(c)));
+            Console.WriteLine(lines);
                 
             
         }
