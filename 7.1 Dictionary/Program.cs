@@ -14,8 +14,7 @@ namespace _7._1_Dictionary
         {
             var filePath = @"C:\Example\Greeting.txt";
             var lines = File.ReadLines(filePath, Encoding.Default)
-                            .Distinct()
-                            .OrderBy(s => s.Length)
+                            .Select((s, ix) => string.Format("{0,4}: {1}", ix + 1, s))
                             .ToArray();
             foreach (var item in lines)
             {
