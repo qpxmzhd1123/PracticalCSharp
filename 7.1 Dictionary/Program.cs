@@ -13,34 +13,18 @@ namespace _7._1_Dictionary
         static void Main(string[] args)
         {
             var filePath = @"C:\Example\Greeting.txt";
-            var lines = ReadAllLines(filePath, Encoding.Default);
-            foreach (var line in lines)
-            {
-                Console.WriteLine(line);
-            }
+            var lines = File.ReadLines(filePath, Encoding.Default)
+                .Count(s => s.Contains("안녕"));
+            Console.WriteLine(lines);
+                           
+
+            
             
 
             
         }
 
-        static public string[] ReadAllLines(string filePath, Encoding encoding)
-        {
-            List<string> list = new List<string>();
-            if (File.Exists(filePath))
-            {
-                using (var reader = new StreamReader(filePath, encoding))
-                {
-                    while (!reader.EndOfStream)
-                    {
-                        var line = reader.ReadLine();
-
-                        list.Add(line);
-                        // list에 추가 line을
-                    }
-                }
-
-            }
-            return list.ToArray();
-        }
+       
+        
     }
 }
