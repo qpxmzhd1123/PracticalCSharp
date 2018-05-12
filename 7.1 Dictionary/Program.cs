@@ -17,6 +17,7 @@ namespace _7._1_Dictionary
             var lines = File.ReadLines(filePath, Encoding.Default)
                             .Where(s => !string.IsNullOrWhiteSpace(s))
                             .ToArray();
+
             foreach (var item in lines)
             {
                 Console.WriteLine(item);
