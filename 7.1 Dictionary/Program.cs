@@ -12,10 +12,15 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var lines = new[] { "Seoul", "New Delhi", "Bangkok", "London", "Paris", };
-            var filePath = @"C:\Example\Cities.txt";
-            File.WriteAllLines(filePath, lines);
-            
+            var filePath = @"C:\Example\Greeting.txt";
+            var lines = File.ReadLines(filePath, Encoding.Default)
+                            .Select((s, ix) => string.Format("{0,4}: {1}", ix + 1, s))
+                            .ToArray();
+            foreach (var item in lines)
+            {
+                Console.WriteLine(item);
+            }
+                            
                 
             
         }
