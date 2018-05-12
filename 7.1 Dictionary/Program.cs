@@ -12,6 +12,7 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
+
             var filePath = @"C:\Example\Greeting.txt";
             var lines = File.ReadLines(filePath, Encoding.Default)
                             .Where(s => !string.IsNullOrWhiteSpace(s))
@@ -19,8 +20,7 @@ namespace _7._1_Dictionary
             foreach (var item in lines)
             {
                 Console.WriteLine(item);
-            }
-                
+            }         
             
         }
 
