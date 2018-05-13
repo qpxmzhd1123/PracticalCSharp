@@ -12,16 +12,16 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-
-            var filePath = @"C:\Example\Greeting.txt";
-            var lines = File.ReadLines(filePath, Encoding.Default)
-                            .Where(s => !string.IsNullOrWhiteSpace(s))
-                            .ToArray();
-
-            foreach (var item in lines)
+            var filePath = @"C:\Example\고향의봄.txt";
+            using (var writer = new StreamWriter(filePath, append: true))
             {
-                Console.WriteLine(item);
-            }         
+                writer.WriteLine("나의 살던 고향은");
+                writer.WriteLine("꽃피는 산골");
+                writer.WriteLine("복숭아꽃 살구꽃");
+                writer.WriteLine("아기 진달래");
+            }
+                            
+                
             
         }
 
