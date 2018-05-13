@@ -12,10 +12,7 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            if (File.Exists(@"C:\Example\Greeting.txt"))
-            {
-                Console.WriteLine("이미 존재합니다.");
-            }
+            File.Delete(@"C:\Example\Greeting.txt");
         }
 
 
