@@ -17,16 +17,15 @@ namespace _7._1_Dictionary
             sw.Start();
 
             var filePath = @"C:\Example\Greeting.txt";
-            var lines = File.ReadLines(filePath, Encoding.UTF8);
-            
+            var lines = File.ReadLines(filePath)
+                            .Select((s, ix) => string.Format("{0,4}: {1}", ix + 1, s));
             foreach (var line in lines)
             {
-                if (line.StartsWith("b"))
-                {
-                    break;
-                }
                // Console.WriteLine(line);
             }
+            
+            
+           
 
             sw.Stop();
 
