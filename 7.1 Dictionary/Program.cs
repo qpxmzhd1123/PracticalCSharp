@@ -13,18 +13,18 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var di = new DirectoryInfo(@"C:\Example");
-            var directories = di.EnumerateFiles("*.txt", SearchOption.AllDirectories);
-            foreach (var dicfo in directories)
-            {
-                Console.WriteLine(dicfo.FullName);
-            }
-            
-            
-           
+            var path = @"C:\Program Files\Microsoft Office\Office16\EXCEL.EXE";
+            var directoryName = Path.GetDirectoryName(path);
+            var fileName = Path.GetFileName(path);
+            var extension = Path.GetExtension(path);
+            var filenameWithoutExtension = Path.GetFileNameWithoutExtension(path);
+            var pathRoot = Path.GetPathRoot(path);
 
-            
-
+            Console.WriteLine("DirectoryName : {0}", directoryName);
+            Console.WriteLine("FileName : {0}", fileName);
+            Console.WriteLine("Extension : {0}", extension);
+            Console.WriteLine("FilenameWithoutExtension : {0}", filenameWithoutExtension);
+            Console.WriteLine("PathRoot : {0}", pathRoot);
         }
 
     }
