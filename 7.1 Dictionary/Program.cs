@@ -13,24 +13,17 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-
-            var filePath = @"C:\Example\Greeting.txt";
-            var lines = File.ReadLines(filePath)
-                            .Select((s, ix) => string.Format("{0,4}: {1}", ix + 1, s));
-            foreach (var line in lines)
+            var di = new DirectoryInfo(@"C:\Example");
+            var directories = di.EnumerateFiles("*.txt", SearchOption.AllDirectories);
+            foreach (var dicfo in directories)
             {
-               // Console.WriteLine(line);
+                Console.WriteLine(dicfo.FullName);
             }
             
             
            
 
-            sw.Stop();
-
-            double second = sw.Elapsed.TotalSeconds;
-            Console.WriteLine(second);
+            
 
         }
 
