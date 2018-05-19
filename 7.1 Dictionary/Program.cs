@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,21 +13,27 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            var filePath = @"C:\Example\Greeting.txt";
+            var lines = File.ReadLines(filePath, Encoding.UTF8);
             
-            IsSumEven(out bool b,out int x, out int y, out int sum);
-            Console.WriteLine(b);
-            Console.WriteLine(x);
-            Console.WriteLine(y);
-            Console.WriteLine(sum);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("b"))
+                {
+                    break;
+                }
+               // Console.WriteLine(line);
+            }
+
+            sw.Stop();
+
+            double second = sw.Elapsed.TotalSeconds;
+            Console.WriteLine(second);
+
         }
 
-        static void IsSumEven(out bool b, out int x, out int y, out int sum)
-        {
-            x = 5;
-            y = 3;
-            sum = x + y;
-            b = sum % 2 == 0;
-
-        }
     }
 }
