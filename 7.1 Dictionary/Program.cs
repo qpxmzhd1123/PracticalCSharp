@@ -14,16 +14,11 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var strings = new[] { "13000", "-50.6", "0.123", "+180.00", "10.2.5",
-            "320-0851", " 123", "$1200", "500원", };
-            var regex = new Regex(@"^[-+]?(\d+)(\.\d+)?$");
-            foreach (var s in strings)
+            var text = "Regex 클래스에 있는 Match 메서드를 사용합니다.";
+            Match match = Regex.Match(text, @"\p{IsHangulSyllables}+");
+            if (match.Success)
             {
-                var isMatch = regex.IsMatch(s);
-                if (isMatch)
-                {
-                    Console.WriteLine(s);
-                }
+                Console.WriteLine("{0} {1}", match.Index, match.Value);
             }
         }
 
