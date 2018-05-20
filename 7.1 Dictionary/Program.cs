@@ -14,12 +14,11 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "C#에는 《값형》과 《참조형》이라는 두 가지의 형이 존재합니다.";
-            var matches = Regex.Matches(text, @"《([^《 》]+)》");
-            foreach (Match match in matches)
+            var text = "kor, KOR, Kor";
+            var mc = Regex.Matches(text, @"\bkor\b", RegexOptions.IgnoreCase);
+            foreach (Match m in mc)
             {
-                // <《값형》> <《참조형》>
-                Console.WriteLine("<{0}>", match.Value);
+                Console.WriteLine(m.Value);
             }
         }
 
