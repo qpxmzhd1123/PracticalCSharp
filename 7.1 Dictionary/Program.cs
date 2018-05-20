@@ -14,12 +14,10 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "kor, KOR, Kor";
-            var mc = Regex.Matches(text, @"\bkor\b", RegexOptions.IgnoreCase);
-            foreach (Match m in mc)
-            {
-                Console.WriteLine(m.Value);
-            }
+            var text = "C# 공부를 쪼끔씩 진행해보자.";
+            var pattern = @"쪼금씩|쪼끔씩|쬐끔씩";
+            var replaced = Regex.Replace(text, pattern, "조금씩");
+            Console.WriteLine(replaced);
         }
 
     }
