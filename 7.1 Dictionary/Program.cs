@@ -14,16 +14,10 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "Regex 클래스를 사용해서 문자ㅕㅇㄹ을 처리하는 방법을 설명합니다.";
-            bool isMatch = Regex.IsMatch(text, @"합니다.$");
-            if (isMatch)
-            {
-                Console.WriteLine("'합니다.'로 끝납니다.");
-            }
-            else
-            {
-                Console.WriteLine("'합니다.'로 끝나지 않습니다.");
-            }
+            var strings = new[] { "Microsoft Window", "Window Server", "Windows", };
+            var regex = new Regex(@"^(W|w)indows$");
+            var count = strings.Count(s => regex.IsMatch(s));
+            Console.WriteLine("{0}행과 일치", count);
         }
 
     }
