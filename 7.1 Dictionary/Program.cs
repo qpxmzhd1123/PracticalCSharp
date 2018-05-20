@@ -14,11 +14,11 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "Regex 클래스에 있는 Match 메서드를 사용합니다.";
-            Match match = Regex.Match(text, @"\p{IsHangulSyllables}+");
-            if (match.Success)
+            var text = "private List<string> results = new List<stirng>();";
+            var matches = Regex.Matches(text, @"List<\w+>");
+            foreach (Match match in matches)
             {
-                Console.WriteLine("{0} {1}", match.Index, match.Value);
+                Console.WriteLine("Index={0}, Length={1}, Value={2}", match.Index, match.Length, match.Value);
             }
         }
 
