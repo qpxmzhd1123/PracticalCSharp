@@ -14,13 +14,12 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "private List<string> results = new List<string>();";
-            var matches = Regex.Matches(text, @"\b[a-z]+\b")
-                               .Cast<Match>()
-                               .OrderBy(x => x.Length);
+            var text = "C#에는 《값형》과 《참조형》이라는 두 가지의 형이 존재합니다.";
+            var matches = Regex.Matches(text, @"《([^《 》]+)》");
             foreach (Match match in matches)
             {
-                Console.WriteLine("Index={0}, Length={1}, value={2}", match.Index, match.Length, match.Value);
+                // <《값형》> <《참조형》>
+                Console.WriteLine("<{0}>", match.Value);
             }
         }
 
