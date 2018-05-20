@@ -14,9 +14,9 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "word, Excel ,PowerPoint, Outlook,OneNote";
-            var pattern = @"\s*,\s*";
-            var replaced = Regex.Replace(text, pattern, ", ");
+            var text = "foo.htm bar.html baz.htm";
+            var pattern = @"\.(htm)\b";
+            var replaced = Regex.Replace(text, pattern, ".html");
             Console.WriteLine(replaced);
         }
 
