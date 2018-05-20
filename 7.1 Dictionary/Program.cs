@@ -14,19 +14,16 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-            var regex = new Regex(@"List<\w+>");
-            for (int i = 0; i < 1000000; i++)
+            var text = "using System.Text.ReularExpressions;";
+            bool isMatch = Regex.IsMatch(text, @"^using");
+            if (isMatch)
             {
-                var text = "private List<string> results = new List<string>();";
-                bool isMatch = Regex.IsMatch(text,@"List<\w+>");
-                //bool isMatch = regex.IsMatch(text);
+                Console.WriteLine("'using'으로 시작됩니다.");
             }
-            stopwatch.Stop();
-            double result = stopwatch.Elapsed.TotalSeconds;
-            Console.WriteLine(result);
-            
+            else
+            {
+                Console.WriteLine("'using'으로 시작되지 않습니다.");
+            }
         }
 
     }
