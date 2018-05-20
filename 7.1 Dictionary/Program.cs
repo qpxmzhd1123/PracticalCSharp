@@ -14,9 +14,9 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "C# 공부를 쪼끔씩 진행해보자.";
-            var pattern = @"쪼금씩|쪼끔씩|쬐끔씩";
-            var replaced = Regex.Replace(text, pattern, "조금씩");
+            var text = "word, Excel ,PowerPoint, Outlook,OneNote";
+            var pattern = @"\s*,\s*";
+            var replaced = Regex.Replace(text, pattern, ", ");
             Console.WriteLine(replaced);
         }
 
