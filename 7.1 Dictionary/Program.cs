@@ -14,15 +14,15 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "using System.Text.ReularExpressions;";
-            bool isMatch = Regex.IsMatch(text, @"^using");
+            var text = "Regex 클래스를 사용해서 문자ㅕㅇㄹ을 처리하는 방법을 설명합니다.";
+            bool isMatch = Regex.IsMatch(text, @"합니다.$");
             if (isMatch)
             {
-                Console.WriteLine("'using'으로 시작됩니다.");
+                Console.WriteLine("'합니다.'로 끝납니다.");
             }
             else
             {
-                Console.WriteLine("'using'으로 시작되지 않습니다.");
+                Console.WriteLine("'합니다.'로 끝나지 않습니다.");
             }
         }
 
