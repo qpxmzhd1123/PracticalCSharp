@@ -14,12 +14,12 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "<p>가나다라마</p><p>바사아자차</p>";
-            var pattern = @"<p>(.*?)</p>";
+            var text = "도로를 지나가는 차들이 뛰-뛰뛰하고 경적을 울리면 반대쪽 차들이 빵빵하고 울렸다.";
+            var pattern = @"(\w)-\1";
             var matches = Regex.Matches(text, pattern);
             foreach (Match m in matches)
             {
-                Console.WriteLine("'{0}'", m.Groups[1].Value);
+                Console.WriteLine("'{0}'", m.Value);
             }
         }
 
