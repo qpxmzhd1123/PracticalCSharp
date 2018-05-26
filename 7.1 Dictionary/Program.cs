@@ -14,12 +14,12 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "Word, Excel ,PowerPoint , Outlook,OneNote";
-            var pattern = @"\s*,\s*";
-            string[] substrings = Regex.Split(text, pattern);
-            foreach (var match in substrings)
+            var text = "a123456 b123 Z12345 AX98765";
+            var pattern = @"\b[a-zA-Z][0-9]{5,}\b";
+            var matches = Regex.Matches(text, pattern);
+            foreach (Match m in matches)
             {
-                Console.WriteLine("'{0}'", match);
+                Console.WriteLine("'{0}'", m.Value);
             }
         }
 
