@@ -14,10 +14,13 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "1234567890123456";
-            var pattern = @"(\d{4})(\d{4})(\d{4})(\d{4})";
-            var replaced = Regex.Replace(text, pattern, "$1-$2-$3-$4");
-            Console.WriteLine(replaced);
+            var text = "Word, Excel ,PowerPoint , Outlook,OneNote";
+            var pattern = @"\s*,\s*";
+            string[] substrings = Regex.Split(text, pattern);
+            foreach (var match in substrings)
+            {
+                Console.WriteLine("'{0}'", match);
+            }
         }
 
     }
