@@ -14,9 +14,9 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "1024바이트,8바이트 문자,바이트,킬로바이트";
-            var pattern = @"(\d+)바이트";
-            var replaced = Regex.Replace(text, pattern, "$1byte");
+            var text = "1234567890123456";
+            var pattern = @"(\d{4})(\d{4})(\d{4})(\d{4})";
+            var replaced = Regex.Replace(text, pattern, "$1-$2-$3-$4");
             Console.WriteLine(replaced);
         }
 
