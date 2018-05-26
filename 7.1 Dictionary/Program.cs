@@ -14,8 +14,8 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var text = "도로를 지나가는 차들이 뛰-뛰뛰하고 경적을 울리면 반대쪽 차들이 빵빵하고 울렸다.";
-            var pattern = @"(\w)-\1";
+            var text = "기러기 펠리컨 청둥오리 오리너구리 토마토 pops push pop";
+            var pattern = @"\b(\w)\w\1\b";
             var matches = Regex.Matches(text, pattern);
             foreach (Match m in matches)
             {
