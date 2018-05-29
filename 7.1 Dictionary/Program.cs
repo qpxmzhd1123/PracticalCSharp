@@ -14,13 +14,12 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var dir = @"C:\Example\HTML.txt";
-            var pattern = @"<(/?)([A-Z][0-9A-Z]*)(.*)>";
-            var lines = File.ReadAllLines(dir, Encoding.Default);
+            var text = "기러기 국제경제국 다들잠들다 너구리 시집간집시 토마토 건조할조건";
+            var pattern = @"\b(\w)(\w)(\w)\2\1\b";
+            var lines = Regex.Matches(text, pattern);
             foreach (var line in lines)
             {
-               var result = Regex.Replace(line, pattern, m => { return $"<{m.Groups[1].Value}{m.Groups[2].Value.ToLower()}{m.Groups[3].Value}>"; });
-                Console.WriteLine(result);
+                Console.WriteLine(line);
             }
         }
 
