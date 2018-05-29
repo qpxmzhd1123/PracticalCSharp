@@ -12,19 +12,19 @@ namespace _7._1_Dictionary
    
     class Program
     {
-        public static bool IsPhoneNumber(string str)
-        {
-            string text = str;
-            var pattern = @"^(0[7-9]0)-\d{4}-\d{4}";
-            var match = Regex.Match(text, pattern);
-            return match.Success;
-        }
         static void Main(string[] args)
         {
-            
-            bool result = IsPhoneNumber("070-1241-5678");
-            Console.WriteLine(result);
-           
+            var fai = @"C:\Example\Greeting.txt";
+            var pattern = @"(\w{3,})|(\d{3,})";
+            string[] lines = File.ReadAllLines(fai);
+            foreach (var line in lines)
+            {
+                var a = Regex.Matches(line, pattern);
+                foreach (var item in a)
+                {
+                    Console.WriteLine(item);
+                }
+            }
         }
 
     }
