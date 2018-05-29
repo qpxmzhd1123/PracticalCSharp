@@ -14,15 +14,14 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var dir = @"C:\Example\Greeting.txt";
-            var pattern = @"[Vv]ersion=""v4.0""";
-            var lines = File.ReadAllLines(dir);
+            var dir = @"C:\Example\HTML.txt";
+            var pattern = @"<(/?)([A-Z][0-9A-Z]*)(.*)>";
+            var lines = File.ReadAllLines(dir, Encoding.Default);
             foreach (var line in lines)
             {
-               var result =  Regex.Replace(line, pattern, @"version=""v5.0""");
+               var result = Regex.Replace(line, pattern, m => { return $"<{m.Groups[1].Value}{m.Groups[2].Value.ToLower()}{m.Groups[3].Value}>"; });
                 Console.WriteLine(result);
             }
-            
         }
 
     }
