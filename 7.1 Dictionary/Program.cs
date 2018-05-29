@@ -14,25 +14,13 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var texts = new[] 
+            var dir = @"C:\Example\Greeting.txt";
+            var pattern = @"[Vv]ersion=""v4.0""";
+            var lines = File.ReadAllLines(dir);
+            foreach (var line in lines)
             {
-                "Time is money.",
-                "What time is it?",
-                "It will take time.",
-                "We reorganized the timetable",
-            };
-            var pattern = @"\btime\b";
-            foreach (var text in texts)
-            {
-                var mat = Regex.Match(text, pattern, RegexOptions.IgnoreCase);
-                if (mat.Success)
-                {
-
-
-                    int index = mat.Index;
-                    string str = text;
-                    Console.WriteLine($"문자열은 {str} Time의 시작위치는{index}");
-                }
+               var result =  Regex.Replace(line, pattern, @"version=""v5.0""");
+                Console.WriteLine(result);
             }
             
         }
