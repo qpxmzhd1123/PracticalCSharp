@@ -9,18 +9,22 @@ using System.Text.RegularExpressions;
 
 namespace _7._1_Dictionary
 {
-    
+   
     class Program
     {
+        public static bool IsPhoneNumber(string str)
+        {
+            string text = str;
+            var pattern = @"^(0[7-9]0)-\d{4}-\d{4}";
+            var match = Regex.Match(text, pattern);
+            return match.Success;
+        }
         static void Main(string[] args)
         {
-            var text = "기러기 펠리컨 청둥오리 오리너구리 토마토 pops push pop";
-            var pattern = @"\b(\w)\w\1\b";
-            var matches = Regex.Matches(text, pattern);
-            foreach (Match m in matches)
-            {
-                Console.WriteLine("'{0}'", m.Value);
-            }
+            
+            bool result = IsPhoneNumber("070-1241-5678");
+            Console.WriteLine(result);
+           
         }
 
     }
