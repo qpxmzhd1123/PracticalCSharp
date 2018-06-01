@@ -19,8 +19,8 @@ namespace _7._1_Dictionary
             foreach (var xnovelist in xdoc.Root.Elements())
             {
                 var xname = xnovelist.Element("name");
-                var birth = (DateTime)xnovelist.Element("birth");
-                Console.WriteLine("{0} {1}", xname.Value, birth.ToString("yyyy-mm-dd"));
+                XAttribute xeng = xname.Attribute("eng");
+                Console.WriteLine("{0} {1}", xname.Value, xeng?.Value);
             }
            
         }
