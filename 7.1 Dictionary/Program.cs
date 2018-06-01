@@ -16,13 +16,15 @@ namespace _7._1_Dictionary
         {
 
             var xdoc = XDocument.Load("novelists.xml");
-            foreach (var xnovelist in xdoc.Root.Elements())
+            var xnovelists = xdoc.Root.Elements()
+                                      .Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
+
+            foreach (var xnovelist in xnovelists)
             {
                 var xname = xnovelist.Element("name");
-                XAttribute xeng = xname.Attribute("eng");
-                Console.WriteLine("{0} {1}", xname.Value, xeng?.Value);
+                var birth = (DateTime)xnovelist.Element("birth");
+                Console.WriteLine("{0} {1}", xname.Value, birth.ToShortDateString());
             }
-           
         }
     
     }
