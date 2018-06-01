@@ -6,22 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace _7._1_Dictionary
 {
-   
     class Program
     {
         static void Main(string[] args)
-        {
-            var text = "기러기 국제경제국 다들잠들다 너구리 시집간집시 토마토 건조할조건";
-            var pattern = @"\b(\w)(\w)(\w)\2\1\b";
-            var lines = Regex.Matches(text, pattern);
-            foreach (var line in lines)
-            {
-                Console.WriteLine(line);
-            }
-        }
+        { 
 
+            var xdoc = XDocument.Load("novelists.xml");
+            var xelements = xdoc.Root.Elements();
+            foreach (var xnovelist in xelements)
+            {
+                XElement xname = xnovelist.Element("birth");
+
+                Console.WriteLine(xname.Value);
+            }
+           
+        }
+    
     }
 }
