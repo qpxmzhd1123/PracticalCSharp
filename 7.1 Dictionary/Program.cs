@@ -17,8 +17,7 @@ namespace _7._1_Dictionary
 
             var xdoc = XDocument.Load("novelists.xml");
             var xnovelists = xdoc.Root.Elements()
-                                      .Where(x => ((DateTime)x.Element("birth")).Year >= 1900);
-
+                .OrderBy(x => (x.Element("name").Attribute("eng").Value));
             foreach (var xnovelist in xnovelists)
             {
                 var xname = xnovelist.Element("name");
