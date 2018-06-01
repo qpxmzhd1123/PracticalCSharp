@@ -13,15 +13,14 @@ namespace _7._1_Dictionary
     class Program
     {
         static void Main(string[] args)
-        { 
+        {
 
             var xdoc = XDocument.Load("novelists.xml");
-            var xelements = xdoc.Root.Elements();
-            foreach (var xnovelist in xelements)
+            foreach (var xnovelist in xdoc.Root.Elements())
             {
-                XElement xname = xnovelist.Element("birth");
-
-                Console.WriteLine(xname.Value);
+                var xname = xnovelist.Element("name");
+                var birth = (DateTime)xnovelist.Element("birth");
+                Console.WriteLine("{0} {1}", xname.Value, birth.ToString("yyyy-mm-dd"));
             }
            
         }
