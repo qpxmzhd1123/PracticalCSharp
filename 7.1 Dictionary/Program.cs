@@ -15,11 +15,18 @@ namespace _7._1_Dictionary
         static void Main(string[] args)
         {
             var xdoc = XDocument.Load("novelists.xml");
-            var xtitles = xdoc.Root.Descendants("title");
-            foreach (var xtitle in xtitles)
+            var novelists = xdoc.Root.Elements()
+                                .Select(x => new
+                                {
+                                    Name = (string)x.Element("name"),
+                                    Birth = (DateTime)x.Element("birth"),
+                                    Death = (DateTime)x.Element("death")
+                                });
+            foreach (var novelist in novelists)
             {
-                Console.WriteLine(xtitle.Value);
+                Console.WriteLine("{0} ({1}-{2})", novelist.Name, novelist.Birth.Year, novelist.Death.Year);
             }
+
         }
     
     }
