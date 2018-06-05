@@ -22,31 +22,22 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var novelists = ReadNovelists();
-            foreach (var novelist in novelists)
-            {
-                Console.WriteLine("{0} ({1}-{2}) - {3}", 
-                    novelist.Name, novelist.Birth.Year, novelist.Death.Year, 
-                    string.Join(", ", novelist.Masterpieces));
-            }
-        }
+            string xmlstirng = 
+                @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+                <novelists>
+                    <novelist>
+                        <name eng=""Agatha Christie"">아가사 크리스티<\name>
+                        <birth>1890-09-15</birth>
+                        <death>1976-01-12</death>
+                        <masterpieces>
+                            <title>그리고 아무도 없었다</title>
+                            <title>오리엔트 특급 살인</title>
+                        </masterpieces>
+                    </novelist>
+                </novelists>";
+            var xdoc = XDocument.Parse(xmlstirng);
 
-        public static IEnumerable<Novelist> ReadNovelists()
-        {
-            var xdoc = XDocument.Load("novelists.xml");
-            var novelists = xdoc.Root.Elements()
-                                .Select(x => new Novelist
-                                {
-                                    Name = (string)x.Element("name"),
-                                    KanaName = (string)(x.Element("name").Attribute("kana")),
-                                    Birth = (DateTime)x.Element("birth"),
-                                    Death = (DateTime)x.Element("death"),
-                                    Masterpieces = x.Element("masterpieces")
-                                                    .Elements("title").Select(title => title.Value)
-                                                    .ToArray()
 
-                                });
-            return novelists.ToArray();
         }
 
     }
