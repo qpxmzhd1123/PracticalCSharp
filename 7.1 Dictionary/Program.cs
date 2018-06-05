@@ -14,15 +14,14 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-
             var xdoc = XDocument.Load("novelists.xml");
-            var xnovelists = xdoc.Root.Elements()
-                .OrderBy(x => (x.Element("name").Attribute("eng").Value));
-            foreach (var xnovelist in xnovelists)
+            foreach (var xnovelist in xdoc.Root.Elements())
             {
                 var xname = xnovelist.Element("name");
-                var birth = (DateTime)xnovelist.Element("birth");
-                Console.WriteLine("{0} {1}", xname.Value, birth.ToShortDateString());
+                var works = xnovelist.Element("masterpieces")
+                                     .Elements("title")
+                                     .Select(x => x.Value);
+                Console.WriteLine("{0} - {1}", xname.Value, string.Join(", ", works));
             }
         }
     
