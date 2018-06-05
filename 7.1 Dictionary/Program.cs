@@ -22,20 +22,17 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            string xmlstirng = 
-                @"<?xml version=""1.0"" encoding=""utf-8"" ?>
-                <novelists>
-                    <novelist>
-                        <name eng=""Agatha Christie"">아가사 크리스티<\name>
-                        <birth>1890-09-15</birth>
-                        <death>1976-01-12</death>
-                        <masterpieces>
-                            <title>그리고 아무도 없었다</title>
-                            <title>오리엔트 특급 살인</title>
-                        </masterpieces>
-                    </novelist>
-                </novelists>";
-            var xdoc = XDocument.Parse(xmlstirng);
+            string elmstring =
+                @"<novelis>
+                    <name kana=""0. Henry"">오 헨리</name>
+                    <birth>1862-10-11</birth>
+                    <death>1910-06-05</death>
+                    <masterpieces>
+                        <title>현자의 선물</title>
+                        <title>마지막 잎새</title>
+                    </masterpiece>
+                 </novelist>";
+            XElement element = XElement.Parse(elmstring);
 
 
         }
