@@ -15,13 +15,10 @@ namespace _7._1_Dictionary
         static void Main(string[] args)
         {
             var xdoc = XDocument.Load("novelists.xml");
-            foreach (var xnovelist in xdoc.Root.Elements())
+            var xtitles = xdoc.Root.Descendants("title");
+            foreach (var xtitle in xtitles)
             {
-                var xname = xnovelist.Element("name");
-                var works = xnovelist.Element("masterpieces")
-                                     .Elements("title")
-                                     .Select(x => x.Value);
-                Console.WriteLine("{0} - {1}", xname.Value, string.Join(", ", works));
+                Console.WriteLine(xtitle.Value);
             }
         }
     
