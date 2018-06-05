@@ -33,6 +33,7 @@ namespace _7._1_Dictionary
                 );
             
             element.ReplaceWith(newElement);
+            xdoc.Save("newNovelists.xml");
 
         }
 
