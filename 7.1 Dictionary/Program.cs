@@ -22,20 +22,24 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            string elmstring =
-                @"<novelis>
-                    <name kana=""0. Henry"">오 헨리</name>
-                    <birth>1862-10-11</birth>
-                    <death>1910-06-05</death>
-                    <masterpieces>
-                        <title>현자의 선물</title>
-                        <title>마지막 잎새</title>
-                    </masterpiece>
-                 </novelist>";
-            XElement element = XElement.Parse(elmstring);
-
+            var element = new XElement("novelist",
+                new XElement("name", "찰스 디킨스", new XAttribute("eng", "Charles Dickens")),
+                new XElement("birth", "1812-02-07"),
+                new XElement("death", "1870-06-09"),
+                new XElement("masterpieces",
+                    new XElement("title", "올리버 트위스트"),
+                    new XElement("title", "크리스마스 캐럴")
+                    )
+                );
             var xdoc = XDocument.Load("novelists.xml");
-            xdoc.Root.Add(element);
+            xdoc.Root.AddFirst(element);
+
+            foreach (var xnovelist in xdoc.Root.Elements())
+            {
+                var xname = xnovelist.Element("name");
+                var birth = (DateTime)xnovelist.Element("birth");
+                Console.WriteLine("{0} {1}", xname.Value, birth.ToShortDateString());
+            }
 
         }
 
