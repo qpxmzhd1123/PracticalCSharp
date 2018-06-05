@@ -34,6 +34,8 @@ namespace _7._1_Dictionary
                  </novelist>";
             XElement element = XElement.Parse(elmstring);
 
+            var xdoc = XDocument.Load("novelists.xml");
+            xdoc.Root.Add(element);
 
         }
 
