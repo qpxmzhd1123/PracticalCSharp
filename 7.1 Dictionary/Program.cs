@@ -22,25 +22,11 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-            var element = new XElement("novelist",
-                new XElement("name", "찰스 디킨스", new XAttribute("eng", "Charles Dickens")),
-                new XElement("birth", "1812-02-07"),
-                new XElement("death", "1870-06-09"),
-                new XElement("masterpieces",
-                    new XElement("title", "올리버 트위스트"),
-                    new XElement("title", "크리스마스 캐럴")
-                    )
-                );
+           
             var xdoc = XDocument.Load("novelists.xml");
-            xdoc.Root.AddFirst(element);
-
-            foreach (var xnovelist in xdoc.Root.Elements())
-            {
-                var xname = xnovelist.Element("name");
-                var birth = (DateTime)xnovelist.Element("birth");
-                Console.WriteLine("{0} {1}", xname.Value, birth.ToShortDateString());
-            }
-
+            var elements = xdoc.Root.Elements().Where(x => x.Element("name").Value == "찰스 디킨스");
+            elements.Remove();
+            
         }
 
     }
