@@ -22,11 +22,18 @@ namespace _7._1_Dictionary
     {
         static void Main(string[] args)
         {
-           
+
             var xdoc = XDocument.Load("novelists.xml");
-            var elements = xdoc.Root.Elements().Where(x => x.Element("name").Value == "찰스 디킨스");
-            elements.Remove();
+            var element = xdoc.Root.Elements()
+                                   .Single(x => x.Element("name").Value == "마크 트웨인")
+                                   .Element("masterpieces");
+            var newElement = new XElement("masterpieces",
+                new XElement("title", "도금시대"),
+                new XElement("title", "아서 왕 궁정의 코네티컷 양키")
+                );
             
+            element.ReplaceWith(newElement);
+
         }
 
     }
