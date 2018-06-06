@@ -23,17 +23,13 @@ namespace _7._1_Dictionary
         static void Main(string[] args)
         {
 
-            var xdoc = XDocument.Load("novelists.xml");
-            var element = xdoc.Root.Elements()
-                                   .Single(x => x.Element("name").Value == "마크 트웨인")
-                                   .Element("masterpieces");
-            var newElement = new XElement("masterpieces",
-                new XElement("title", "도금시대"),
-                new XElement("title", "아서 왕 궁정의 코네티컷 양키")
-                );
-            
-            element.ReplaceWith(newElement);
-            xdoc.Save("newNovelists.xml");
+            var option = new XElement("option");
+            option.SetElementValue("enabled", true);
+            option.SetElementValue("min", 0);
+            option.SetElementValue("max", 100);
+            option.SetElementValue("step", 10);
+            var root = new XElement("settings", option);
+            root.Save("sample.xml");
 
         }
 
