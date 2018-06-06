@@ -23,14 +23,12 @@ namespace _7._1_Dictionary
         static void Main(string[] args)
         {
 
-            var option = new XElement("option");
-            option.SetElementValue("enabled", true);
-            option.SetElementValue("min", 0);
-            option.SetElementValue("max", 100);
-            option.SetElementValue("step", 10);
-            var root = new XElement("settings", option);
-            root.Save("sample.xml");
-
+            var xdoc = XDocument.Load("sample.xml");
+            var option = xdoc.Root.Element("option");
+            Console.WriteLine((bool)option.Attribute("enabled"));
+            Console.WriteLine((int)option.Attribute("min"));
+            Console.WriteLine((int)option.Attribute("max"));
+            Console.WriteLine((int)option.Attribute("step"));
         }
 
     }
